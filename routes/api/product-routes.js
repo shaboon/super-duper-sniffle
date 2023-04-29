@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
     },
     include: [
       Category,
-      // { model: Tag, through: ProductTag }, //Including specifics
+      { model: Tag, through: ProductTag }, //Including specifics
     ],
   })
 
@@ -103,7 +103,6 @@ router.put("/:id", (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
